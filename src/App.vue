@@ -1,12 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav class="c-nav">
+      <ul class="c-nav-list">
+        <li class="c-nav-list-item active">
+          Home
+        </li>
+
+        <li class="c-nav-list-item">
+          Voting
+        </li>
+      </ul>
+    </nav>
+
+    <div class="c-alert">
+      Something went wrong
+    </div>
+
+    <div class="c-alert warning">
+      Warning
+    </div>
+
+    <div class="c-alert success">
+      Success
+    </div>
+
+    <h1>
+      Eurosong festival
+    </h1>
+
+    <p>
+      This is our voting application
+    </p>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+
+import style from "./scss/style.scss"
 
 export default {
   name: 'App',
@@ -16,13 +47,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
