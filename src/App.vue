@@ -35,15 +35,17 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-import style from "./scss/style.scss"
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+name: 'App',
+components: {
+HelloWorld
+}
 }
 </script>
+
+<style lang="scss">
+@import "./scss/style.scss";
+</style>
 
