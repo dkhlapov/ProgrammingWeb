@@ -1,51 +1,65 @@
 <template>
-  <div id="app">
-    <nav class="c-nav">
-      <ul class="c-nav-list">
-        <li class="c-nav-list-item active">
-          Home
-        </li>
+    <div id="app">
+        <Navigation />
+        <Button buttonText="Add warning alert" alertType="warning" alertMessage="Warning" 
+        @add-message="addAlert"
+        />
 
-        <li class="c-nav-list-item">
-          Voting
-        </li>
-      </ul>
-    </nav>
+        <Alert :message=error.message :customClasses="error.customClasses" v-for="(error, index) in errors" :key="index"/>
 
-    <div class="c-alert">
-      Something went wrong
+        <h1>
+            Eurosong festival
+        </h1>
+
+        <p>
+            This is our voting application
+        </p>
     </div>
-
-    <div class="c-alert warning">
-      Warning
-    </div>
-
-    <div class="c-alert success">
-      Success
-    </div>
-
-    <h1>
-      Eurosong festival
-    </h1>
-
-    <p>
-      This is our voting application
-    </p>
-  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+    import Navigation from './components/Navigation.vue';
+    import Alert from "./components/Alert.vue";
+    import Button from "./components/Button.vue";
 
-export default {
-name: 'App',
-components: {
-HelloWorld
-}
-}
+
+    export default {
+        name: 'App',
+        data(){
+            return{
+                errors: [
+                    {
+                        message: "Something went wrong"
+                    },
+                    {
+                        message: "Warning",
+                        customClasses: "warning"
+                    },
+                    {
+                        message: "Success",
+                        customClasses: "success"
+                    }
+        
+                ]
+            }
+        },
+        methods:{
+            addAlert(message, type){
+                this.errors.push({
+                    message: message,
+                    customClasses: type
+                })
+            }
+        },
+        components: {
+            Navigation,
+            Alert,
+            Button
+        }
+    }
 </script>
 
 <style lang="scss">
-@import "./scss/style.scss";
+    @import "./scss/style.scss";
 </style>
 
